@@ -173,12 +173,12 @@ can add elements and remove the next element.  More precisely, the operations
 supported by the #Queue# interface are
 \begin{itemize}
   \item #add(x)#: add the value #x# to the #Queue#
-  \item #remove()#: remove the next (previously added) value, #y#, from the #Queue# and return #y#
+  \item #remove()#: remove the next value, #y#, from the #Queue# and return #y#
 \end{itemize}
 Notice that the #remove()# operation takes no argument.  The #Queue#'s
 \emph{queueing discipline} decides which element should be removed.
 There are many possible queueing disciplines, the most common of which
-include FIFO, priority, and LIFO.
+include FIFO, priority, and LIFO (the last is used by #Stacks# as opposed to #Queues#).
 
 A \emph{FIFO (first-in-first-out) #Queue#},
 \index{FIFO queue}%
@@ -226,11 +226,11 @@ A very common queueing discipline is the LIFO (last-in-first-out)
 \index{LIFO queue|seealso{stack}}%
 \index{queue!LIFO}%
 \index{stack}%
-discipline, illustrated in \figref{stack}.  In a \emph{LIFO Queue},
+discipline, illustrated in \figref{stack}.  It is sufficiently different from the FIFO #Queue# that it get its own name:
+#Stack#, although some texts refer to it as a #LIFO Queue#. In stacks 
 the most recently added element is the next one removed.  This is best
 visualized in terms of a stack of plates; plates are placed on the top of
-the stack and also removed from the top of the stack. This structure is
-so common that it gets its own name: #Stack#.  Often, when discussing a
+the stack and also removed from the top of the stack. Often, when discussing a
 #Stack#, the names of #add(x)# and #remove()# are changed to #push(x)#
 and #pop()#; this is to avoid confusing the LIFO and FIFO queueing
 disciplines.
@@ -244,7 +244,7 @@ disciplines.
 
 A #Deque#
 \index{deque}%
-is a generalization of both the FIFO #Queue# and LIFO #Queue# (#Stack#).
+is a generalization of both the FIFO #Queue# and #Stack# (LIFO #Queue#).
 A #Deque# represents a sequence of elements, with a front and a back.
 Elements can be added at the front of the sequence or the back of the
 sequence.  The names of the #Deque# operations are self-explanatory:
@@ -590,6 +590,8 @@ immensely useful for describing the running times of computer algorithms.
 Consider the following piece of code:
 \javaimport{junk/Simple.snippet()}
 \cppimport{ods/Simple.snippet()}
+\pcodeimport{ods/Simple.snippet()}
+
 One execution of this method involves
 \begin{itemize}
       \item $1$ assignment (#int\, i\, =\, 0#),
@@ -1118,7 +1120,7 @@ many Java tutorials online \cite{oracle_tutorials}.}
   parts of this exercise should be done by making use of an implementation
   of the relevant interface (#Stack#, #Queue#, #Deque#, #USet#, or #SSet#)
   provided by the \javaonly{Java Collections Framework}\cpponly{C++
-  Standard Template Library}.
+	Standard Template Library}\pcodeonly{language of their choosing}.
 
   Solve the following problems by reading a text file one line at a
   time and performing operations on each line in the appropriate data
